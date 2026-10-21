@@ -59,4 +59,4 @@ sequenceDiagram
 
 ## Design trade-offs
 
-The project retains a simple `FriendRequest` entity with a string status rather than a richer domain model. It is easy to explain for an internship portfolio, but an expanded application should use an enum, foreign keys/navigation properties, unique canonical friendship pairs, transactions, and database constraints for every relationship invariant.
+The project retains a simple `FriendRequest` entity with a string status. Future refinements could use an enum, foreign keys/navigation properties, unique canonical friendship pairs, transactions, and database constraints for every relationship invariant.

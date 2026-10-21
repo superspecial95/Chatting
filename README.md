@@ -7,9 +7,7 @@
   <a href="https://github.com/superspecial95/Chatting/actions/workflows/build-and-test.yml"><img alt="Build and test" src="https://github.com/superspecial95/Chatting/actions/workflows/build-and-test.yml/badge.svg" /></a>
 </p>
 
-Mini Discord is a learning-focused desktop chat application built to demonstrate a complete .NET workflow: a WPF client, an ASP.NET Core API, JWT authentication, SignalR real-time messaging, EF Core, and SQL Server.
-
-> This is a portfolio project, not a production service. Its documented limitations are intentional discussion points for a junior .NET interview.
+Mini Discord is a desktop chat application with a WPF client and an ASP.NET Core server. It supports JWT-authenticated accounts, friend requests, real-time direct messaging with SignalR, message history, and file sharing backed by SQL Server.
 
 ## Highlights
 
@@ -40,7 +38,7 @@ For the component responsibilities and request flows, see [the architecture note
 
 ## Screenshots
 
-These are captures of the running WPF client with empty forms and no personal chat data. The chat screen still needs a screenshot from a deliberate demo session with test accounts.
+Screenshots of the WPF client without personal account data:
 
 | Login | Registration |
 | --- | --- |
@@ -123,9 +121,7 @@ The client does not bypass TLS certificate validation. For HTTPS development, tr
 dotnet test ChatServer.Tests\ChatServer.Tests.csproj
 ```
 
-The automated suite covers friendship and presence rules plus real HTTP/SignalR requests using isolated in-memory test data; it does not touch your configured `ChatDB`. It does not yet validate SQL Server-specific migration or constraint behavior. The manual regression checklist is in [docs/TEST_PLAN.md](docs/TEST_PLAN.md). The included GitHub Actions workflow is configured to run the tests and build the Windows WPF client on each push or pull request after this project is pushed to GitHub.
-
-For CV wording and interview preparation, see [docs/CV_EN.md](docs/CV_EN.md). Add real application screenshots only after checking that no personal chat content or credentials are visible.
+The automated suite covers friendship and presence rules plus real HTTP/SignalR requests using isolated in-memory test data; it does not touch your configured `ChatDB`. It does not yet validate SQL Server-specific migration or constraint behavior. The manual regression checklist is in [docs/TEST_PLAN.md](docs/TEST_PLAN.md). GitHub Actions runs the tests and builds the Windows WPF client on each push or pull request.
 
 ## Security choices
 
@@ -142,13 +138,6 @@ For CV wording and interview preparation, see [docs/CV_EN.md](docs/CV_EN.md). Ad
 - Chat history currently has a fixed 50-message window; cursor pagination would be the next API improvement.
 - There is no unfriend, message deletion, rate limiting, or audit logging yet.
 - The project still needs integration tests against a disposable SQL Server database and WPF UI automation for end-to-end coverage.
-
-## Interview talking points
-
-- Why authorization must be enforced in the SignalR hub and API, not only hidden in the UI.
-- How multiple browser/app connections can make a naive online-status implementation incorrect.
-- Why attachments should live outside public static-file folders and be authorized per message participant.
-- How unique indexes complement application-level duplicate checks under concurrent requests.
 
 ## Repository hygiene
 
