@@ -131,14 +131,6 @@ The automated suite covers friendship and presence rules plus real HTTP/SignalR 
 - A user can attach only a file they uploaded themselves. The server persists the attachment URL; the client never fetches arbitrary URLs supplied in chat data.
 - New uploads are allow-listed by extension and stored outside `wwwroot`. Old attachments can remain in `wwwroot/uploads`, but the server blocks the public `/uploads` path and serves them only to message participants through `/api/Files/legacy/{storedFileName}`. These local files are ignored by Git, so restoring an old database also requires restoring its attachment files.
 
-## Known limitations / next improvements
-
-- No refresh-token or logout-revocation mechanism yet.
-- Uploads are extension allow-listed but do not have anti-virus or MIME-content scanning.
-- Chat history currently has a fixed 50-message window; cursor pagination would be the next API improvement.
-- There is no unfriend, message deletion, rate limiting, or audit logging yet.
-- The project still needs integration tests against a disposable SQL Server database and WPF UI automation for end-to-end coverage.
-
 ## Repository hygiene
 
 Do not commit database credentials, JWT keys, build output, runtime uploads, or sample files containing real user data. The provided `.gitignore` excludes these items.
