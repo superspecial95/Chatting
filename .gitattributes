@@ -1,0 +1,3 @@
+ChatServer/wwwroot/lib/** linguist-vendored
+ChatServer/Migrations/*.Designer.cs linguist-generated
+ChatServer/Migrations/AppDbContextModelSnapshot.cs linguist-generated

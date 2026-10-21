@@ -1,0 +1,23 @@
+# Build output and IDE state
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.pubxml
+TestResults/
+
+# Local secrets and database configuration
+appsettings.Local.json
+appsettings.Development.local.json
+secrets.json
+
+# Runtime user data and media; never commit uploads
+ChatServer/App_Data/
+ChatServer/wwwroot/uploads/
+
+# Archives and generated assets that do not belong in source control
+*.zip
+*.bak
+*.mdf
+*.ldf
